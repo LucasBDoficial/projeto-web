@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  html,
+  body {
+    height: 100vh;
+    font-family: "Source Sans Pro";
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    font-size: 1.6rem;
+  }
+
+/*    MENU DA MINHA APLICAÇÃO   */
+
+  .container-nav{
+    background-color: #257cff;
+    padding: 10px 5%;
+    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
+  @media (min-width: 992px) {
+    .nav{
+      position: absolute;
+      right: 5%;
+    }
+  }
+
+  .tag{
+    margin-left: 25px;
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+  }
+
+  .tag:hover{
+    color: white;
+    border-bottom: 1px solid white;
+  }
+
+  .container-nav iconify-icon{
+    font-size: 2rem;
+  }
+
+/*    BANNER DA MINHA APLICAÇÃO   */
+
+  .banner{
+    background-color: #257cff;
+    color: white;
+    padding: 0 0 60px 0;
+    margin-top: 50px;
+  }
+
+  .banner-img img{
+    width: 100%;
+  }
+
+  .banner-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .banner-text h1{
+    padding: 0 2%;
+  }
+
+  .btn-banner{
+    margin: 1% 15%;
+  }
+
+/*    FEATURE DA MINHA APLICAÇÃO    */
+
+  .feature{
+    padding: 5%;
+  }
+
+  .feature-box{
+    text-align: center;
+    padding: 5%;
+  }
+
+  .feature-box iconify-icon{
+    font-size: 5.5rem;
+    color: #257cff;
+  }
+
+/*    TESTEMUNHO DA MUNHA APLICÇÃO    */
+
+  .testemunho{
+    padding: 5% 0;
+    background-color: rgb(223, 231, 255);
+  }
+
+  .testemunho .box{
+    width: 100%;
+    padding: 0 10%;
+    text-align: center;
+  }
+
+  .testemunho-img{
+  max-width: 15%;
+  min-width: 80px;
+  border-radius: 100%;
+  display: block;
+  margin: 10px auto;
+  }
+
+/*    PLANOS DA MINHA APLICÇÃO    */
+
+  .planos{
+    padding: 5% 0;
+  }
+
+  .planos-box{
+    margin: auto;
+  }
+
+  .card{
+    width: 25rem;
+    padding: 1%;
+    margin: 5% auto;
+  }
+
+  .planos-tag{
+    padding: 5% 5%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+    font-size: 3rem;
+  }
+
+/*    FOOTER DA MINHA APLICAÇÃO   */ 
+
+  .footer{
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #257cff;
+  }
+
+  .footer ul{
+    width: 100%;
+    margin: auto;
+  }
+
+  .footer ul a{
+    margin: 0 2%;
+    font-size: 2.5rem;
+    color: black;
+  }
+
+  .footer ul a:hover{
+    color: rgb(66, 66, 66);
+  }
+
+  .footer-tag:hover{
+    color: rgb(66, 66, 66);
+  }
+
+  .footer-tag{
+    font-size: 1.7rem;
+    margin: 2%;
+    color: black;
+  }
+
+  /*    DESIGNER RESPONSIVO   */
+
+  @media (max-width: 768px) {
+    .banner{
+      padding: 10% 0 60px 0;
+      margin: 40px 0 0 0;
+    }
+
+    .testemunho{
+      padding: 10% 0;
+    }
+  
+    .testemunho .box{
+      padding: 0 15%;
+    }
+
+    .footer{
+      padding: 5% 2%;
+    }
+
+    .footer ul a{
+      margin: 0 3%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    html {
+      font-size: 50%;
+    }
+
+    .feature-box{
+      margin: 10% 0;
+    }
+
+    .card{
+      margin: 10% auto;
+    }
+
+    .footer{
+      padding: 10% 2%;
+    }
+
+    .footer ul a{
+      margin: 0 5%;
+    }
+
+    .footer-tag{
+      margin: 5% 2%;
+    }
+  }
