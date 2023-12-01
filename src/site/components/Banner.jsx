@@ -12,8 +12,7 @@ export default function Banner(){
                         <button type="button" className="btn btn-outline-light btn-lg btn-banner" >Fazer login</button>
 
                         <br />
-                        <i>Gerencie seus clientes em um único lugar.</i>
-                        
+                        <i>Gerencie seus clientes em um único lugar.</i>   
                     </div>
 
                     <div className="col-lg-6 banner-img">
@@ -21,7 +20,6 @@ export default function Banner(){
                     </div>
 
                 </div>
-
             </div>
         </section>
     );
