@@ -194,6 +194,15 @@
       padding: 0 15%;
     }
 
+    .planos-box{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card{
+      margin: 10% auto;
+    }
+
     .footer{
       padding: 5% 2%;
     }
@@ -210,10 +219,6 @@
 
     .feature-box{
       margin: 10% 0;
-    }
-
-    .card{
-      margin: 10% auto;
     }
 
     .footer{
