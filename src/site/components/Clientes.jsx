@@ -8,7 +8,7 @@ export default function Testemunho(){
                     <Carousel.Item className='box' >
                         <img
                         className="testemunho-img"
-                        src="../image/cliente.jpg"
+                        src="./src/image/cliente.jpg"
                         alt="Third slide"
                         />
                         <i>João Lucas</i>
@@ -20,7 +20,7 @@ export default function Testemunho(){
                     <Carousel.Item className='box' >
                         <img
                         className="testemunho-img"
-                        src="../image/cliente.jpg"
+                        src="./src/image/cliente.jpg"
                         alt="Third slide"
                         />
                         <i>Pedro Henrique</i>
@@ -32,7 +32,7 @@ export default function Testemunho(){
                     <Carousel.Item className='box' >
                         <img
                         className="testemunho-img"
-                        src="../image/cliente.jpg"
+                        src="./src/image/cliente.jpg"
                         alt="Third slide"
                         />
                         <i>Fabio Rodrigo</i>
