@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 
-import Footer from "./site/components/Footer";
+import Footer from './site/components/Footer'
 
 export default function App() {
-
-  return(
+  return (
     <div>
       <Outlet />
 
       <Footer />
     </div>
-  );
+  )
 }
