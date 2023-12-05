@@ -16,7 +16,7 @@ export default function Banner() {
               type="button"
               className="btn btn-outline-light btn-lg btn-banner bnt-hover"
             >
-              <a href="./src/app/login/Login">Fazer login</a>
+              <a href="/app">Fazer login</a>
             </button>
 
             <br />
