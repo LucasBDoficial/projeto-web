@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import ErrorPage from './router/ErrorPage'
 import Site from './site/Site'
-import Login from './app/Login'
+import Login from './app/login/Login'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
 import './Global.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router = createBrowserRouter([
   {

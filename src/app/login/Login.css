@@ -1,0 +1,38 @@
+/*    PAGINA DE LOGIN DA MINHA APLICAÇÃO    */
+
+.back{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-login{
+  text-align: center;
+  padding: 0 10%;
+}
+
+.form-login iconify-icon{
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.form-email, .form-pass{
+  padding: 2%;
+  font-size: 1.8rem;
+}
+
+.form-button{
+  padding: 1% 7%;
+  font-size: 2rem;
+  margin-top: 25px;
+}
+
+.form-link {
+  margin-top: 20px;
+}
+
+.form-link a{
+  display: block;
+  margin-top: 10px;
+}

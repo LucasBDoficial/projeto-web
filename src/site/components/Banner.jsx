@@ -10,13 +10,13 @@ export default function Banner() {
             <br />
 
             <button type="button" className="btn btn-dark btn-lg btn-banner">
-              Criar uma conta
+              <a href="#">Criar uma conta</a>
             </button>
             <button
               type="button"
               className="btn btn-outline-light btn-lg btn-banner"
             >
-              Fazer login
+              <a href="/app">Fazer login</a>
             </button>
 
             <br />
