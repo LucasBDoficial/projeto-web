@@ -3,15 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "node src/main.jsx"
+    "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
