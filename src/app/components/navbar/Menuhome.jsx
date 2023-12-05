@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom'
+
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
-export default function Menu() {
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './Menuhome.css'
+
+export default function Menuhome() {
   return (
-    <Navbar expand="lg" className="container-nav">
+    <Navbar expand="lg" className="container-home">
       <Container fluid>
         <Navbar.Brand href="/">
           <iconify-icon icon="logos:web-dev" />
@@ -13,15 +18,15 @@ export default function Menu() {
 
         <Navbar.Collapse id="navbarScroll">
           <Nav
-            className="me-auto my-2 my-lg-0 nav"
+            className="me-auto my-2 my-lg-0 nav-home"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <a href="#banner">Home</a>
-            <a href="#features">Features</a>
-            <a href="#testemunho">Clientes</a>
-            <a href="#planos">Planos e Preços</a>
-            <a href="#footer">Contato</a>
+            <Link to="/app/home">Home</Link>
+
+            <Link to="/app/home/novoclient">Novo cliente</Link>
+
+            <Link to="/">Sair</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

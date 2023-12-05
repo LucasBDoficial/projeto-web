@@ -1,4 +1,4 @@
-/*    PAGINA DE LOGIN DA MINHA APLICAÇÃO    */
+/*    PAGINA DE CRIAR UMA CONTA DA MINHA APLICAÇÃO    */
 
 .back{
   height: 100vh;
@@ -32,7 +32,7 @@
   margin-top: 20px;
 }
 
-.form-link Link{
+.form-link a{
   display: block;
   margin-top: 10px;
 }

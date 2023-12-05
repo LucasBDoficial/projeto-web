@@ -2,9 +2,9 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'
 
-import './Login.css'
+import './Newlogin.css'
 
-export default function Login() {
+export default function Newlogin() {
   return (
     <div className="back">
       <div className="container">
@@ -12,7 +12,8 @@ export default function Login() {
           <a href="/">
             <iconify-icon icon="logos:web-dev" />
           </a>
-          <h1>Login</h1>
+
+          <h1>Criar conta</h1>
           <br />
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -34,12 +35,11 @@ export default function Login() {
           </Form.Group>
 
           <Button className="form-button" variant="primary" type="submit">
-            Entrar
+            Criar conta
           </Button>
 
           <div className="form-link">
-            <Link to="/app/resetsenha">Esqueci minha senha</Link>
-            <Link to="/app/newlogin">Criar uma conta</Link>
+            <Link to="/app">Já tenho uma conta</Link>
           </div>
         </Form>
       </div>

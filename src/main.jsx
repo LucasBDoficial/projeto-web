@@ -6,6 +6,10 @@ import App from './App'
 import ErrorPage from './router/ErrorPage'
 import Site from './site/Site'
 import Login from './app/login/Login'
+import Newlogin from './app/newlogin/Newlogin'
+import Resetsenha from './app/resetsenha/Resetsenha'
+import Home from './app/home/Home'
+import Novoclient from './app/novoclient/Novoclient'
 
 import './Global.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,6 +27,24 @@ const router = createBrowserRouter([
       {
         path: '/app',
         element: <Login />,
+      },
+      {
+        path: '/app/newlogin',
+        element: <Newlogin />,
+      },
+      {
+        path: '/app/resetsenha',
+        element: <Resetsenha />,
+      },
+      {
+        path: '/app/home',
+        element: <Home />,
+        children: [
+          {
+            path: '/app/home/novoclient',
+            element: <Novoclient />,
+          },
+        ],
       },
     ],
   },

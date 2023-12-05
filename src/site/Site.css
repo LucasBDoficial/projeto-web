@@ -3,7 +3,6 @@
 .container-nav{
   background-color: #257cff;
   padding: 10px 5%;
-  position: relative;
   position: fixed;
   top: 0;
   width: 100%;
@@ -17,13 +16,13 @@
   }
 }
 
-.tag{
+.nav a{
   margin-left: 25px;
   color: rgb(224, 224, 224);
   text-decoration: none;
 }
 
-.tag:hover{
+.nav a:hover{
   color: white;
   border-bottom: 1px solid white;
 }
@@ -65,6 +64,11 @@
   text-decoration: none;
   color: white;
   font-size: 1.5rem;
+  display: block;
+}
+
+.bnt-hover:hover{
+  background-color: rgba(0, 0, 0, 0.349);
 }
 
 /*    FEATURE DA MINHA APLICAÇÃO    */

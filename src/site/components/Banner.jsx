@@ -10,11 +10,11 @@ export default function Banner() {
             <br />
 
             <button type="button" className="btn btn-dark btn-lg btn-banner">
-              <a href="#">Criar uma conta</a>
+              <a href="/app/newlogin">Criar uma conta</a>
             </button>
             <button
               type="button"
-              className="btn btn-outline-light btn-lg btn-banner"
+              className="btn btn-outline-light btn-lg btn-banner bnt-hover"
             >
               <a href="/app">Fazer login</a>
             </button>
