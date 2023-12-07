@@ -1,8 +1,10 @@
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { Link, useNavigate } from 'react-router-dom'
+import Alert from 'react-bootstrap/Alert'
 
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from './../config/firebase'
 
@@ -11,6 +13,7 @@ import './Login.css'
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [sucesso, setSucesso] = useState('')
   const setUser = useNavigate()
 
   const handleLogin = () => {
@@ -23,17 +26,10 @@ export default function Login() {
       })
       .catch((error) => {
         const errorMessage = error.message
-
         console.log(errorMessage)
+
+        setSucesso('N')
       })
-  }
-
-  function alterarEmail(event) {
-    setEmail(event.target.value)
-  }
-
-  function alterarPassword(event) {
-    setPassword(event.target.value)
   }
 
   return (
@@ -48,7 +44,7 @@ export default function Login() {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
-              onChange={alterarEmail}
+              onChange={(e) => setEmail(e.target.value)}
               className="form-email"
               type="email"
               placeholder="E-mail"
@@ -59,7 +55,7 @@ export default function Login() {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
-              onChange={alterarPassword}
+              onChange={(e) => setPassword(e.target.value)}
               className="form-pass"
               type="password"
               placeholder="Senha"
@@ -74,6 +70,10 @@ export default function Login() {
           >
             Entrar
           </Button>
+
+          {sucesso === 'N' ? (
+            <Alert className="alert-login">E-mail ou Senha inválido !</Alert>
+          ) : null}
 
           <div className="form-link">
             <Link to="/app/resetsenha">Esqueci minha senha</Link>
