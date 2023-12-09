@@ -1,14 +1,38 @@
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import Alert from 'react-bootstrap/Alert'
+
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+
+import { sendPasswordResetEmail } from 'firebase/auth'
+import { auth } from './../config/firebase'
 
 import './Resetsenha.css'
 
 export default function Resetsenha() {
+  const [email, setEmail] = useState('')
+  const [erro, setErro] = useState('')
+  const [sucesso, setSucesso] = useState('')
+
+  function resetLogin() {
+    sendPasswordResetEmail(auth, email)
+    setSucesso('Email enviado com sucesso.')
+      .then((ResetUser) => {
+        const user = ResetUser.user
+        console.log(user)
+        // setUser('/app')
+        setSucesso('Email enviado com sucesso:')
+      })
+      .catch((error) => {
+        setErro('Erro ao enviar email:' + error.message)
+      })
+  }
+
   return (
     <div className="back">
       <div className="container">
-        <Form className="form-login">
+        <Form className="reset-login">
           <a href="/">
             <iconify-icon icon="logos:web-dev" />
           </a>
@@ -17,7 +41,8 @@ export default function Resetsenha() {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
-              className="form-email"
+              onChange={(e) => setEmail(e.target.value)}
+              className="reset-email"
               type="email"
               placeholder="E-mail"
             />
@@ -25,20 +50,26 @@ export default function Resetsenha() {
 
           <br />
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              className="form-pass"
-              type="password"
-              placeholder="Senha"
-            />
-          </Form.Group>
-
-          <Button className="form-button" variant="primary" type="submit">
-            Entrar
+          <Button
+            onClick={resetLogin}
+            className="reset-button"
+            variant="primary"
+            type="button"
+          >
+            Enviar
           </Button>
 
-          <div className="form-link">
+          {erro.length > 0 ? (
+            <Alert className="alert-erro">{erro}</Alert>
+          ) : null}
+
+          {sucesso.length > 0 ? (
+            <Alert className="alert-sucesso">{sucesso}</Alert>
+          ) : null}
+
+          <div className="reset-link">
             <Link to="/app/newlogin">Criar uma conta</Link>
+            <Link to="/app">Já tenho uma conta</Link>
           </div>
         </Form>
       </div>
