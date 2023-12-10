@@ -12,7 +12,7 @@ export default function Home() {
       <Menuhome />
 
       <div className="container-fluid">
-        <h1 className="title">Cadastro de cliente</h1>
+        <h1 className="title">Cadastro de clientes</h1>
 
         <ListaCliente />
       </div>
