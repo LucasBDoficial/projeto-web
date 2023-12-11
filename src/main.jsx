@@ -36,15 +36,15 @@ const router = createBrowserRouter([
         path: '/app/resetsenha',
         element: <Resetsenha />,
       },
+    ],
+  },
+  {
+    path: '/app/home',
+    element: <Home />,
+    children: [
       {
-        path: '/app/home',
-        element: <Home />,
-        children: [
-          {
-            path: '/app/home/novoclient',
-            element: <Novoclient />,
-          },
-        ],
+        path: '/app/home/novoclient',
+        element: <Novoclient />,
       },
     ],
   },
