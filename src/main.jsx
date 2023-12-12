@@ -10,6 +10,7 @@ import Newlogin from './app/newlogin/Newlogin'
 import Resetsenha from './app/resetsenha/Resetsenha'
 import Home from './app/home/Home'
 import Novoclient from './app/novoclient/Novoclient'
+import Menuhome from './app/components/navbar/Menuhome'
 
 import './Global.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -40,10 +41,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/app/home',
-    element: <Home />,
+    element: <Menuhome />,
     children: [
       {
-        path: '/app/home/novoclient',
+        path: '/app/home',
+        element: <Home />,
+      },
+      {
+        path: '/app/home/novocliente',
         element: <Novoclient />,
       },
     ],

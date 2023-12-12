@@ -1,5 +1,60 @@
-/*    LISTA DE CLIENTE DE MINHA APLICAÇÃO   */        
+/*    LISTA DE CLIENTE DE MINHA APLICAÇÃO   */     
 
-table tr .top{
-  background-color: blue;
+.boot p{
+  display: none;
+}
+
+.top th{
+  background-color: rgb(128, 128, 128);
+  color: white;
+}
+
+.link{
+  display: flex;
+  justify-content: center;
+}
+
+.link iconify-icon{
+  font-size: 22px;
+  color: red;
+}
+
+.link .one iconify-icon{
+  margin: 0 15px 0 0;
+  color: blue !important; 
+}
+
+@media (max-width: 760px) {
+  .top{
+    display: none;
+  }
+
+  tr{
+    display: flex;
+    flex-direction: column;
+  }
+
+  td, th{
+    display: flex;
+  }
+
+  .boot p{
+    display: block;
+    font-weight: bold;
+    margin: 0 5% 0 0;
+    width: 70px;
+  }
+
+  .link{
+    justify-content: right;
+  }
+  
+  .link iconify-icon{
+    font-size: 30px;
+    margin: 0 25px 0 0;
+  }
+  
+  .link .one{
+    margin: 0;
+  }
 }

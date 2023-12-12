@@ -1,8 +1,12 @@
 /*    INICIO DO HOME DA MINHA APLICAÇÃO   */
 
 .title{
-  margin: 20px 0;
+  margin: 15px 0;
   text-align: center;
+  background-color: gray;
+  color: white;
+  padding: 5px 0;
+  border-radius: 5px;
 }
 
 .crm-box{
@@ -35,6 +39,10 @@
   padding: 0 2%;
 }
 
+.crm-single2 Button p{
+  margin: 0 0 0 5px;
+}
+
 .crm-input{
   height: 100%;
 }
@@ -56,5 +64,13 @@
 
   .crm-button{
     padding: 1.5% 0;
+  }
+
+  .crm-single2 Button{
+    padding: 0 4%;
+  }
+
+  .crm-single2 Button p{
+    display: none;
   }
 }

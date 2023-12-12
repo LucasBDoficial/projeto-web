@@ -1,9 +1,8 @@
-import { Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from './../config/firebase'
 
-import Menuhome from '../components/navbar/Menuhome'
 import ListaCliente from '../components/listacliente/ListaCliente'
 
 import Button from 'react-bootstrap/Button'
@@ -15,14 +14,20 @@ import './Home.css'
 
 export default function Home() {
   const [clientes, setClientes] = useState([])
+  const [busca, setBusca] = useState('')
+
+  const buscaLower = busca.toLowerCase()
+  const teams = clientes.filter((cliente) =>
+    cliente.nome.toLowerCase().includes(buscaLower),
+  )
 
   useEffect(() => {
     const getUsers = async () => {
       const userCollectionRef = collection(db, 'clientes')
       const data = await getDocs(userCollectionRef)
+
       setClientes(
         data.docs.map((doc) => ({
-          ...doc.data(),
           id: doc.id,
           nome: doc.data().nome,
           email: doc.data().email,
@@ -35,25 +40,24 @@ export default function Home() {
 
   return (
     <div>
-      <Menuhome />
-
       <div className="container-fluid">
-        <h1 className="title">Cadastro de cliente</h1>
+        <h1 className="title">- Lista de clientes -</h1>
 
         <div className="crm-box">
           <div className="crm-single1">
-            <Button
-              // onClick={handleLogin}
-              className="crm-button"
-              variant="primary"
-              type="button"
-            >
-              <iconify-icon icon="pepicons-pop:plus"></iconify-icon> Clientes
-            </Button>
+            <Link to="/app/home/novocliente">
+              <Button className="crm-button" variant="primary" type="button">
+                <iconify-icon icon="pepicons-pop:plus"></iconify-icon> Clientes
+              </Button>
+            </Link>
           </div>
 
           <div className="crm-single2">
-            <InputGroup className="mb-3 crm-input">
+            <InputGroup
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+              className="mb-3 crm-input"
+            >
               <Form.Control
                 className="crm-font"
                 placeholder="Pesquisar por nome"
@@ -62,15 +66,14 @@ export default function Home() {
 
               <Button className="crm-font" variant="primary" id="button-addon2">
                 <iconify-icon icon="iconamoon:search"></iconify-icon>
+                <p>Pesquisar</p>
               </Button>
             </InputGroup>
           </div>
         </div>
 
-        <ListaCliente arrayClientes={clientes} />
+        <ListaCliente arrayClientes={teams} />
       </div>
-
-      <Outlet />
     </div>
   )
 }
