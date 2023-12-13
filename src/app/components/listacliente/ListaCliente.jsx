@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
+import { doc, deleteDoc } from 'firebase/firestore'
+import { db } from '../../config/firebase'
 
 import './ListaCliente.css'
 
 export default function ListaCliente(props) {
-  function deleteUser(id) {
-    alert('excluir' + id)
+  async function deleteUser(id) {
+    const userDoc = doc(db, 'clientes', id)
+    await deleteDoc(userDoc)
   }
 
   return (
@@ -45,7 +48,7 @@ export default function ListaCliente(props) {
                   <iconify-icon icon="bxs:edit"></iconify-icon>
                 </Link>
 
-                <Link to="#" onClick={() => deleteUser(cliente.id)}>
+                <Link onClick={() => deleteUser(cliente.id)}>
                   <iconify-icon icon="material-symbols:delete-rounded"></iconify-icon>
                 </Link>
               </td>
