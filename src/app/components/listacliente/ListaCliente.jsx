@@ -44,7 +44,10 @@ export default function ListaCliente(props) {
                 {cliente.fone}
               </td>
               <td className="link">
-                <Link className="one" to="#">
+                <Link
+                  className="one"
+                  to={'/app/home/editarcliente/' + cliente.id}
+                >
                   <iconify-icon icon="bxs:edit"></iconify-icon>
                 </Link>
 
