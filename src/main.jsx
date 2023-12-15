@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import PrivateRoute from './app/context/Provider'
+import { AuthProvider } from './app/context/Context'
+
 import App from './app'
 import ErrorPage from './router/ErrorPage'
 import Site from './site/Site'
@@ -41,8 +44,12 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/app/home',
-    element: <Menuhome />,
+    element: (
+      <PrivateRoute>
+        <Menuhome />
+      </PrivateRoute>
+    ),
+
     children: [
       {
         path: '/app/home',
@@ -62,6 +69,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

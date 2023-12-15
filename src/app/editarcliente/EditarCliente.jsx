@@ -1,17 +1,54 @@
 import Form from 'react-bootstrap/Form'
-// import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert'
 
-import { Link, useParams } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { db } from '../config/firebase'
+import { collection, updateDoc, getDocs } from 'firebase/firestore'
 
 import './EditarCliente.css'
 
-export default function EditarCliente() {
+export default function EditarCliente(props) {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [fone, setFone] = useState('')
-  // const [mensagem, setMensagem] = useState('')
+  const [mensagem, setMensagem] = useState('')
   const { id } = useParams()
+  const setUser = useNavigate()
+  const data = collection(db, 'clientes')
+
+  useEffect(() => {
+    const getEdit = async () => {
+      const set = getDocs(props, { nome, email, fone })
+      set.then((resultado) => {
+        setNome(resultado.data().nome)
+      })
+    }
+    getEdit()
+  }, [])
+
+  function alterarCliente() {
+    if (nome.length === 0) {
+      setMensagem('Informe seu nome')
+    } else if (email.length === 0) {
+      setMensagem('Informe seu e-mail')
+    } else if (fone.length === 0) {
+      setMensagem('Informe seu numero')
+    } else {
+      updateDoc(data, {
+        nome,
+        email,
+        fone,
+      })
+        .then(() => {
+          setMensagem('')
+          setUser('/app/home')
+        })
+        .catch((error) => {
+          setMensagem(error.message)
+        })
+    }
+  }
 
   return (
     <div className="container-fluid">
@@ -58,11 +95,13 @@ export default function EditarCliente() {
             Cancelar
           </Link>
 
-          <Link className="btn2">Salvar</Link>
+          <Link onClick={alterarCliente} className="btn2">
+            Salvar
+          </Link>
 
-          {/* {mensagem.length > 0 ? (
+          {mensagem.length > 0 ? (
             <Alert className="alert-newClient">{mensagem}</Alert>
-          ) : null} */}
+          ) : null}
         </div>
       </Form>
     </div>

@@ -3,10 +3,10 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-
+import { useState, useContext } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from './../config/firebase'
+import { AuthContext } from '../context/Context'
 
 import './Login.css'
 
@@ -15,19 +15,20 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [sucesso, setSucesso] = useState('')
   const setUser = useNavigate()
+  const { setLogado } = useContext(AuthContext)
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        setLogado(true)
         const user = userCredential.user
-
         console.log(user)
         setUser('/app/home')
       })
       .catch((error) => {
+        setLogado(false)
         const errorMessage = error.message
         console.log(errorMessage)
-
         setSucesso('N')
       })
   }

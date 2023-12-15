@@ -6,7 +6,6 @@ export default function app() {
   return (
     <div>
       <Outlet />
-
       <Footer />
     </div>
   )
