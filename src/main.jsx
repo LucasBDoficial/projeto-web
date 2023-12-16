@@ -7,14 +7,14 @@ import { AuthProvider } from './app/context/Context'
 
 import App from './app'
 import ErrorPage from './router/ErrorPage'
-import Site from './site/Site'
+import Site from './site/site'
 import Login from './app/login/Login'
 import Newlogin from './app/newlogin/Newlogin'
-// import Resetsenha from './app/resetsenha/Resetsenha'
+import Resetsenha from './app/resetsenha/Resetsenha'
 import Home from './app/home/Home'
 import Novoclient from './app/novoclient/Novoclient'
 import Menuhome from './app/components/navbar/Menuhome'
-import EditarCliente from './app/editarcliente/EditarCliente'
+// import EditarCliente from './app/editarcliente/EditarCliente'
 
 import './Global.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -37,10 +37,10 @@ const router = createBrowserRouter([
         path: '/app/newlogin',
         element: <Newlogin />,
       },
-      // {
-      //   path: '/app/resetsenha',
-      //   element: <Resetsenha />,
-      // },
+      {
+        path: '/app/resetsenha',
+        element: <Resetsenha />,
+      },
     ],
   },
   {
@@ -59,10 +59,10 @@ const router = createBrowserRouter([
         path: '/app/home/novocliente',
         element: <Novoclient />,
       },
-      {
-        path: '/app/home/editarcliente/:id',
-        element: <EditarCliente />,
-      },
+      // {
+      //   path: '/app/home/editarcliente/:id',
+      //   element: <EditarCliente />,
+      // },
     ],
   },
 ])
