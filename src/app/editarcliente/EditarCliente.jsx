@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { db } from '../config/firebase'
-import { collection, updateDoc, getDocs } from 'firebase/firestore'
+import { collection, updateDoc, doc, getDocs } from 'firebase/firestore'
 
 import './EditarCliente.css'
 
@@ -15,40 +15,48 @@ export default function EditarCliente(props) {
   const [mensagem, setMensagem] = useState('')
   const { id } = useParams()
   const setUser = useNavigate()
-  const data = collection(db, 'clientes')
 
-  useEffect(() => {
-    const getEdit = async () => {
-      const set = getDocs(props, { nome, email, fone })
-      set.then((resultado) => {
-        setNome(resultado.data().nome)
-      })
-    }
-    getEdit()
-  }, [])
+  // useEffect(() => {
+  //   const user = doc(db, 'clientes', props + id)
+  //   alert(user.nome)
+  // }, [])
 
-  function alterarCliente() {
-    if (nome.length === 0) {
-      setMensagem('Informe seu nome')
-    } else if (email.length === 0) {
-      setMensagem('Informe seu e-mail')
-    } else if (fone.length === 0) {
-      setMensagem('Informe seu numero')
-    } else {
-      updateDoc(data, {
-        nome,
-        email,
-        fone,
-      })
-        .then(() => {
-          setMensagem('')
-          setUser('/app/home')
-        })
-        .catch((error) => {
-          setMensagem(error.message)
-        })
-    }
-  }
+  // useEffect(() => {
+  //   const getEdit = async () => {
+  //     const userCollectionRef = doc(db, 'clientes' + id)
+  //     const data = await getDocs(userCollectionRef)
+
+  //     setNome(
+  //       data.docs.map((doc) => ({
+  //         nome: doc.data().nome,
+  //       })),
+  //     )
+  //   }
+  //   getEdit()
+  // }, [])
+
+  // function alterarCliente() {
+  //   if (nome.length === 0) {
+  //     setMensagem('Informe seu nome')
+  //   } else if (email.length === 0) {
+  //     setMensagem('Informe seu e-mail')
+  //   } else if (fone.length === 0) {
+  //     setMensagem('Informe seu numero')
+  //   } else {
+  //     updateDoc(data, {
+  //       nome,
+  //       email,
+  //       fone,
+  //     })
+  //       .then(() => {
+  //         setMensagem('')
+  //         setUser('/app/home')
+  //       })
+  //       .catch((error) => {
+  //         setMensagem(error.message)
+  //       })
+  //   }
+  // }
 
   return (
     <div className="container-fluid">
@@ -57,7 +65,7 @@ export default function EditarCliente(props) {
       <Form className="colum">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Código</Form.Label>
-          <Form.Control value={id} className="form" type="text" disabled />
+          <Form.Control className="form" type="text" disabled />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -95,7 +103,10 @@ export default function EditarCliente(props) {
             Cancelar
           </Link>
 
-          <Link onClick={alterarCliente} className="btn2">
+          <Link
+            // onClick={alterarCliente}
+            className="btn2"
+          >
             Salvar
           </Link>
 
