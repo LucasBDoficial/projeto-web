@@ -10,7 +10,7 @@ import ErrorPage from './router/ErrorPage'
 import Site from './site/Site'
 import Login from './app/login/Login'
 import Newlogin from './app/newlogin/Newlogin'
-import Resetsenha from './app/resetsenha/Resetsenha'
+// import Resetsenha from './app/resetsenha/Resetsenha'
 import Home from './app/home/Home'
 import Novoclient from './app/novoclient/Novoclient'
 import Menuhome from './app/components/navbar/Menuhome'
@@ -37,10 +37,10 @@ const router = createBrowserRouter([
         path: '/app/newlogin',
         element: <Newlogin />,
       },
-      {
-        path: '/app/resetsenha',
-        element: <Resetsenha />,
-      },
+      // {
+      //   path: '/app/resetsenha',
+      //   element: <Resetsenha />,
+      // },
     ],
   },
   {
