@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore'
 import { db } from './../config/firebase'
 
-import ListaCliente from '../components/listacliente/ListaCliente'
+import ListaCliente from '../components/listacliente/ListaCliente.jsx'
 
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
